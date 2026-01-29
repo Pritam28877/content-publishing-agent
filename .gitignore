@@ -7,13 +7,14 @@ node_modules/
 coverage/
 
 # Next.js
-/.next/
-/out/
+.next/
+out/
+build/
+dist/
+next-env.d.ts
 
 # Production
-/build
-/lib
-/dist
+lib/
 
 # Misc
 .DS_Store
@@ -41,3 +42,6 @@ temporal_cli*
 .idea/
 *.swp
 *.swo
+
+# Turbopack
+.turbo/
