@@ -3,7 +3,7 @@ import type * as activities from './activities';
 import { WorkflowInput, WorkflowResult } from './shared';
 
 const { generateContent, checkContentSafety, publishToCMS, sendNotification } = proxyActivities<typeof activities>({
-  startToCloseTimeout: '1 minute',
+  startToCloseTimeout: '5 minutes',
   retry: {
     initialInterval: '1s',
     backoffCoefficient: 2,

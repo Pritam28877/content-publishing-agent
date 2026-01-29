@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing topic or email' }, { status: 400 });
     }
 
-    const connection = await Connection.connect({ address: 'localhost:7233' });
+    const connection = await Connection.connect({ address: process.env.NEXT_PUBLIC_TEMPORAL_ADDRESS || 'localhost:7233' });
     const client = new Client({ connection });
 
     const workflowId = `publish-${nanoid()}`;
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const connection = await Connection.connect({ address: 'localhost:7233' });
+    const connection = await Connection.connect({ address: process.env.NEXT_PUBLIC_TEMPORAL_ADDRESS || 'localhost:7233' });
     const client = new Client({ connection });
 
     const handle = client.workflow.getHandle(workflowId);
